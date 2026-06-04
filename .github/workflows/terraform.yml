@@ -22,8 +22,21 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
-        run: terraform init
+          #  DEV DEPLOY
+      - name: Terraform Init Dev
+        if: github.ref == 'refs/heads/dev'
+        run: terraform init -backend-config="backend-dev.conf"
 
-      - name: Terraform Plan
-        run: terraform plan
+      - name: Terraform Plan Dev
+        if: github.ref == 'refs/heads/dev'
+        run: terraform plan -var-file="dev.tfvars"
+
+
+      #  PROD DEPLOY
+      - name: Terraform Init Prod
+        if: github.ref == 'refs/heads/main'
+        run: terraform init -backend-config="backend-prod.conf"
+
+      - name: Terraform Plan Prod
+        if: github.ref == 'refs/heads/main'
+        run: terraform plan -var-file="prod.tfvars"
