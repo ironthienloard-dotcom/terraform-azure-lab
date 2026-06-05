@@ -1,7 +1,11 @@
 
 env            = "prod"
 rg_name_prefix = "rg-demo"
-location       = "southeastasia"
+location = "southeastasia"
 
 vnet_cidr   = "10.0.0.0/24"
 subnet_cidr = "10.0.0.0/25"
+
+app_sku = "P1v2"
+
+app_number = "01"
