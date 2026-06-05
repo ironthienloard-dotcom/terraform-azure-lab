@@ -20,3 +20,16 @@ variable "vnet_cidr" {
 variable "subnet_cidr" {
   type = string
 }
+
+
+variable "app_sku" {
+  description = "App Service SKU"
+  type        = string
+}
+
+
+
+variable "app_number" {
+  description = "App number suffix"
+  type        = string
+}

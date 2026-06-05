@@ -1,7 +1,7 @@
 
 env            = "dev"
 rg_name_prefix = "rg-demo"
-location = "southeastasia"
+location       = "southeastasia"
 
 
 
