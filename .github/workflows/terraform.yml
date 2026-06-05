@@ -3,6 +3,7 @@ name: Terraform Basic
 on:
   push:
     branches:
+      - dev
       - main
 
 env:
