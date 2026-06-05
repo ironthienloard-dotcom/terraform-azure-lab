@@ -1,9 +1,14 @@
+
 name: Terraform Basic
 
 on:
   push:
     branches:
       - dev
+      - main
+
+  pull_request:
+    branches:
       - main
 
 env:
@@ -23,7 +28,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-          #  DEV DEPLOY
+      # DEV
       - name: Terraform Init Dev
         if: github.ref == 'refs/heads/dev'
         run: terraform init -backend-config="backend-dev.conf"
@@ -32,8 +37,7 @@ jobs:
         if: github.ref == 'refs/heads/dev'
         run: terraform plan -var-file="dev.tfvars"
 
-
-      #  PROD DEPLOY
+      # PROD 
       - name: Terraform Init Prod
         if: github.ref == 'refs/heads/main'
         run: terraform init -backend-config="backend-prod.conf"
