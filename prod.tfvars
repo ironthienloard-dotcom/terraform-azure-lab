@@ -6,6 +6,6 @@ location = "southeastasia"
 vnet_cidr   = "10.0.0.0/24"
 subnet_cidr = "10.0.0.0/25"
 
-app_sku = "P1v2"
+app_sku = "B1"
 
-app_number = "01"
+app_number = "099"
